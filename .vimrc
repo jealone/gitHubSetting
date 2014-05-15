@@ -60,7 +60,7 @@ endif
 """""新文件标题
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "新建.c,.h,.sh,.java文件，自动插入文件头 
-autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.php exec ":call SetTitle()" 
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.php,*.py exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
 func SetTitle() 
 	"如果文件类型为.sh文件 
@@ -72,6 +72,15 @@ func SetTitle()
 		call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
 		call append(line(".")+4, "\#########################################################################") 
 		call append(line(".")+5, "\#!/bin/bash") 
+		call append(line(".")+6, "") 
+	elseif &filetype == 'python'
+		call setline(1,"\#########################################################################") 
+		call append(line("."), "\# File Name: ".expand("%")) 
+		call append(line(".")+1, "\# Author: Arthur Guo") 
+		call append(line(".")+2, "\# mail: jealone@gmail.com ") 
+		call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+		call append(line(".")+4, "\#########################################################################") 
+		call append(line(".")+5, "\#!/usr/bin/env python") 
 		call append(line(".")+6, "") 
 	elseif &filetype == 'php'
 		call setline(1,"<?php") 
@@ -188,8 +197,8 @@ set guioptions-=m           " 隐藏菜单栏
 " 设置在状态行显示的信息
 set foldcolumn=1
 set foldexpr=1
-set foldmethod=syntax 
-"set foldmethod=indent 
+"set foldmethod=syntax 
+set foldmethod=indent 
 "set foldmethod=manual   " 手动折叠  
 set foldlevel=1 
 set foldenable              " 开始折叠
