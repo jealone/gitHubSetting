@@ -6,3 +6,4 @@ git reset --hard <commit> //用commit更改引用指向替换暂存区和工作�
 git reset --soft <commit> //用commit只更改引用指向不修改暂存区和工作区
 git reset --mixed <commit> //不修改工作区
 git reset -- <file> //用HEAD修改暂存区
+
