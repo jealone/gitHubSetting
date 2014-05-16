@@ -1,0 +1,8 @@
+git reset HEAD //用HEAD指向分支替换暂存区
+git rm -- cached <file> //直接删除暂存区，其他不改变
+git checkout . 或者 git checkout -- <file> 用暂存区替换工作区
+git checkout HEAD . 或者 git checkout HEAD <file> 用HEAD指向的分支替换暂存区和工作区
+git reset --hard <commit> //用commit更改引用指向替换暂存区和工作区
+git reset --soft <commit> //用commit只更改引用指向不修改暂存区和工作区
+git reset --mixed <commit> //不修改工作区
+git reset -- <file> //用HEAD修改暂存区
